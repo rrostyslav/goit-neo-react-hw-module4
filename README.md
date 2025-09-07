@@ -1,5 +1,34 @@
 # GoIT Homework
 
+# Image Search App
+
+A React application for searching and viewing images from Unsplash API.
+
+## Features
+
+- Search images by keywords
+- Responsive image gallery
+- Load more functionality with pagination
+- Modal view for full-size images
+- Error handling and loading states
+- Toast notifications
+- Keyboard navigation (ESC to close modal)
+
+## Technologies Used
+
+- React 19.1.1
+- Vite
+- Axios for API requests
+- TanStack React Query for data fetching
+- React Modal for modal dialogs
+- React Hot Toast for notifications
+- React Spinners for loading indicators
+- CSS Modules for styling
+
+## Setup Instructions
+
+1. Clone the repository:
+
 ## Tech Stack
 
 - Language: JavaScript

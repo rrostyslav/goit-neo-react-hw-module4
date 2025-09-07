@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.button {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background-color: #4d1de2;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    transform 0.1s;
+}
+
+.button:hover {
+  background-color: #3d0db8;
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.button:focus {
+  outline: 2px solid #4d1de2;
+  outline-offset: 2px;
+}
