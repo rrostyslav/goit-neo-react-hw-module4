@@ -61,11 +61,7 @@ export default async function getPhotos({ queryKey, signal = null }) {
       signal,
     });
 
-    return {
-      results: res.data,
-      total: 10000,
-      total_pages: 834,
-    };
+    return res.data;
   }
 
   const res = await axios.get(`https://api.unsplash.com/search/photos`, {

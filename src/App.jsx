@@ -24,11 +24,14 @@ export default function App() {
   });
 
   useEffect(() => {
-    if (data?.results) {
+    if (data) {
+      // Handle both formats: search returns {results: []}, photos returns []
+      const photos = data.results || data;
+
       if (page === 1) {
-        setImages(data.results);
+        setImages(photos);
       } else {
-        setImages((prev) => [...prev, ...data.results]);
+        setImages((prev) => [...prev, ...photos]);
       }
     }
   }, [data, page]);
@@ -57,7 +60,16 @@ export default function App() {
     setSelectedImage(null);
   };
 
-  const showLoadMore = data && data.results.length > 0 && page < data.total_pages;
+  const showLoadMore =
+    data &&
+    (() => {
+      // For search results (object with results and total_pages)
+      if (data.results) {
+        return data.results.length > 0 && page < data.total_pages;
+      }
+      // For photos endpoint (array) - show more if we got a full page
+      return data.length === 12;
+    })();
 
   return (
     <>

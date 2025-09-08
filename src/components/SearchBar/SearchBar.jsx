@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 import css from './SearchBar.module.css';
 
 export default function SearchBar({ onSubmit }) {
@@ -6,7 +7,14 @@ export default function SearchBar({ onSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(query.trim());
+    const trimmedQuery = query.trim();
+
+    if (!trimmedQuery) {
+      toast.error('Please enter text to search for images!');
+      return;
+    }
+
+    onSubmit(trimmedQuery);
   };
 
   return (
